@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="朝日新聞デジタル企画報道部・小宮山亮磨 @ryomakom" />
+
+<meta name="date" content="2023-05-06" />
+
+<title>コロナ下の３年間で死者はどれだけ増えたのか</title>
+
+<script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="site_style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">コロナ下の３年間で死者はどれだけ増えたのか</h1>
+<h4 class="author">朝日新聞デジタル企画報道部・小宮山亮磨 <span
+class="citation">@ryomakom</span></h4>
+<h4 class="date">2023-05-06</h4>
+
+</div>
+
+
+<div id="はじめに" class="section level2">
+<h2>はじめに</h2>
+<p>　新型コロナウイルス感染症が2020年始めから流行し始めて、3年超が過ぎた。この間、たとえコロナが死因とはされていなくても、コロナにかかったことによる持病の悪化や、コロナ患者の急増にともなう医療の逼迫など、さまざまな理由で亡くなる人が増えている。<br />
+　3年間の死者は具体的にどれだけ増えたのか。原因は何だったのか。朝日新聞は、厚生労働省研究班が公表している「予測死者数」を、実際に報告された死者数と比較するという手法で分析し、報道した。<br />
+　予測死者数には不確実さがあるため、一定の幅をもって公表されるが、その幅の中でおおむね真ん中にあたる「点推定値」を採用した。研究班の橋爪真弘・東京大教授と野村周平・慶応大特任准教授に相談しながら、分析手法を検討した。<br />
+　この資料では、データをどこから得てどう分析したか、Rのコードとともに説明する。</p>
+<div id="データの出典" class="section level4">
+<h4>データの出典</h4>
+<p>　死者数と予測死者数のデータ：日本の超過および過少死亡数ダッシュボード（<a
+href="https://exdeaths-japan.org/"
+class="uri">https://exdeaths-japan.org/</a>）<br />
+　都道府県別の人口：2020年国勢調査（<a
+href="https://www.stat.go.jp/data/kokusei/2020/kekka.html"
+class="uri">https://www.stat.go.jp/data/kokusei/2020/kekka.html</a>）<br />
+　死者数が報告された「週」と「年」との対応：国立感染症研究所（<a
+href="https://www.niid.go.jp/niid/ja/calendar.html"
+class="uri">https://www.niid.go.jp/niid/ja/calendar.html</a>）<br />
+　都道府県別の地図：地図蔵（<a
+href="https://japonyol.net/editor/article/47-prefectures-geojson.html"
+class="uri">https://japonyol.net/editor/article/47-prefectures-geojson.html</a>）</p>
+</div>
+</div>
+<div id="分析の手順" class="section level2">
+<h2>分析の手順</h2>
+<div id="必要なパッケージの取得" class="section level3">
+<h3>必要なパッケージの取得</h3>
+<p>　tidyverseとsf、cowplot、gridExtraという4種類のパッケージを使う。</p>
+<pre class="r"><code>library(tidyverse)
+library(sf)
+library(cowplot)
+library(gridExtra)</code></pre>
+</div>
+<div id="データの整形" class="section level3">
+<h3>データの整形</h3>
+<p>　厚労省研究班のサイトから取得した予測死者数（全体と死因別の2種類ある）を、人口などのデータと合体させるなどの加工、整形をする。</p>
+<pre class="r"><code># 各都道府県に割り振る数字２桁のID
+prefID &lt;- read_csv(&quot;data/pref.csv&quot;)
+
+# 国勢調査をもとにした各都道府県の人口
+population2020 &lt;- read_csv(&quot;data/population2020.csv&quot;)
+
+# 死者数が報告された「週」と「年」との対応
+epidem_year &lt;- read_csv(&quot;data/epidem_year.csv&quot;) %&gt;% 
+  mutate(date=as.Date(date))
+
+# 全体の死者数と予測死者数
+est &lt;- read_csv(&quot;data/Estimates/Estimates_weighted.csv&quot;) %&gt;% 
+  pivot_longer(cols = c(-week_ending_date),
+               names_to = &quot;pref_method&quot;,
+               values_to = &quot;value&quot;) %&gt;%
+  mutate(pref_method = str_split(pref_method,&quot;_&quot;,simplify=T)) %&gt;%
+  mutate(prefEN = pref_method[,1],
+         method = pref_method[,2]) %&gt;%
+  select(-pref_method) %&gt;%
+  pivot_wider(names_from = method,
+              values_from = value) %&gt;% 
+  rename(observed = Observed,
+         est_point = Estimated,
+         est_upper = `95Upper`,
+         est_lower = `95Lower`) %&gt;%
+  mutate(year = str_sub(week_ending_date,6,9),
+         month = str_sub(week_ending_date,3,5),
+         day = str_sub(week_ending_date,1,2)) %&gt;%
+  mutate(month=ifelse(month==&quot;jan&quot;,&quot;01&quot;,
+               ifelse(month==&quot;feb&quot;,&quot;02&quot;,
+               ifelse(month==&quot;mar&quot;,&quot;03&quot;,
+               ifelse(month==&quot;apr&quot;,&quot;04&quot;,
+               ifelse(month==&quot;may&quot;,&quot;05&quot;,
+               ifelse(month==&quot;jun&quot;,&quot;06&quot;,
+               ifelse(month==&quot;jul&quot;,&quot;07&quot;,
+               ifelse(month==&quot;aug&quot;,&quot;08&quot;,
+               ifelse(month==&quot;sep&quot;,&quot;09&quot;,
+               ifelse(month==&quot;oct&quot;,&quot;10&quot;,
+               ifelse(month==&quot;nov&quot;,&quot;11&quot;,
+               ifelse(month==&quot;dec&quot;,&quot;12&quot;,month))))))))))))) %&gt;%
+  mutate(date=as.Date(str_c(year,&quot;-&quot;,month,&quot;-&quot;,day))) %&gt;% 
+  left_join(prefID) %&gt;%
+  select(date, prefID, pref, prefEN, observed, est_point, est_upper, est_lower) %&gt;% 
+  arrange(date) %&gt;% 
+  left_join(population2020) %&gt;% 
+  left_join(epidem_year)
+
+# 死因別に分けた死者数と予測死者数
+est_cause &lt;- bind_rows(read_csv(&quot;data/Estimates/Estimates_weighted_Circulatory.csv&quot;) %&gt;%
+                         mutate(cause=&quot;circulatory&quot;),
+                       read_csv(&quot;data/Estimates/Estimates_weighted_Cancer.csv&quot;) %&gt;%
+                         mutate(cause=&quot;cancer&quot;),
+                       read_csv(&quot;data/Estimates/Estimates_weighted_non-COVID-19.csv&quot;) %&gt;%
+                         mutate(cause=&quot;non_COVID&quot;),
+                       read_csv(&quot;data/Estimates/Estimates_weighted_Respiratory.csv&quot;) %&gt;%
+                         mutate(cause=&quot;respiratory&quot;),
+                       read_csv(&quot;data/Estimates/Estimates_weighted_Senility.csv&quot;) %&gt;%
+                         mutate(cause=&quot;senility&quot;),
+                       read_csv(&quot;data/Estimates/Estimates_weighted_Suicide.csv&quot;) %&gt;%
+                         mutate(cause=&quot;suicide&quot;)) %&gt;% 
+  pivot_longer(cols=c(-week_ending_date,-cause),
+               names_to = &quot;pref_method&quot;,
+               values_to = &quot;value&quot;) %&gt;%
+  mutate(pref_method=str_split(pref_method,&quot;_&quot;,simplify=T)) %&gt;%
+  mutate(prefEN=pref_method[,1],
+         method=pref_method[,2]) %&gt;%
+  select(-pref_method) %&gt;%
+  pivot_wider(names_from = method,
+              values_from = value) %&gt;%
+  rename(observed = Observed,
+         est_point = Estimated,
+         est_upper = `95Upper`,
+         est_lower = `95Lower`) %&gt;% 
+  mutate(year=str_sub(week_ending_date,6,9),
+         month=str_sub(week_ending_date,3,5),
+         day=str_sub(week_ending_date,1,2)) %&gt;%
+  mutate(month=ifelse(month==&quot;jan&quot;,&quot;01&quot;,
+               ifelse(month==&quot;feb&quot;,&quot;02&quot;,
+               ifelse(month==&quot;mar&quot;,&quot;03&quot;,
+               ifelse(month==&quot;apr&quot;,&quot;04&quot;,
+               ifelse(month==&quot;may&quot;,&quot;05&quot;,
+               ifelse(month==&quot;jun&quot;,&quot;06&quot;,
+               ifelse(month==&quot;jul&quot;,&quot;07&quot;,
+               ifelse(month==&quot;aug&quot;,&quot;08&quot;,
+               ifelse(month==&quot;sep&quot;,&quot;09&quot;,
+               ifelse(month==&quot;oct&quot;,&quot;10&quot;,
+               ifelse(month==&quot;nov&quot;,&quot;11&quot;,
+               ifelse(month==&quot;dec&quot;,&quot;12&quot;,month))))))))))))) %&gt;%
+  mutate(date=as.Date(str_c(year,&quot;-&quot;,month,&quot;-&quot;,day))) %&gt;% 
+  left_join(prefID) %&gt;%
+  select(date, prefID, pref, prefEN, cause, observed, est_point, est_upper, est_lower) %&gt;% 
+  arrange(date) %&gt;% 
+  left_join(epidem_year)
+
+# 都道府県別の地図データに死者数のデータを合体させる
+  jpmap &lt;- st_read(&quot;data/prefectures.geojson&quot;) %&gt;% 
+  mutate(pref=as.character(name)) %&gt;% 
+  select(-name) %&gt;% 
+  left_join(est %&gt;%
+              group_by(prefID, pref, epidem_year, population2020) %&gt;%
+              summarize(observed=sum(observed),
+                        est_point=sum(est_point)) %&gt;%
+              ungroup() %&gt;% 
+              mutate(exdeath = observed-est_point) %&gt;%
+              mutate(exdeath_pop = exdeath*100000 / population2020) %&gt;%
+              select(-observed, -est_point) %&gt;% 
+              pivot_wider(names_from = epidem_year,
+                          values_from = c(exdeath,exdeath_pop)))</code></pre>
+<pre><code>## Reading layer `prefectures&#39; from data source 
+##   `C:\Users\exdeaths\data\prefectures.geojson&#39; 
+##   using driver `GeoJSON&#39;
+## Simple feature collection with 47 features and 2 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: 122.9338 ymin: 24.04571 xmax: 153.9869 ymax: 45.55628
+## Geodetic CRS:  WGS 84</code></pre>
+<pre class="r"><code># 人口10万人当たりの予測死者数との差を地図にする
+
+jpmap17 &lt;- jpmap %&gt;%
+  mutate(予測死者数との差=exdeath_pop_2017) %&gt;% 
+  ggplot() +
+  geom_sf(aes(geometry=geometry,fill=予測死者数との差)) +
+  scale_fill_gradient2(high=&quot;red&quot;,low=&quot;blue&quot;,mid = &quot;white&quot;,
+                       midpoint = 0,
+                       limits=c(-180,180)) +
+  theme_void() +
+  coord_sf(xlim = c(127, 147), ylim = c(25, 46),
+           crs = st_crs(&quot;+proj=longlat +datum=WGS84 +no_defs&quot;), 
+           expand = FALSE) +
+  labs(title=&quot;　　2017年&quot;)
+
+jpmap18 &lt;- jpmap %&gt;%
+  mutate(予測死者数との差=exdeath_pop_2018) %&gt;% 
+  ggplot() +
+  geom_sf(aes(geometry=geometry,fill=予測死者数との差)) +
+  scale_fill_gradient2(high=&quot;red&quot;,low=&quot;blue&quot;,mid = &quot;white&quot;,
+                       midpoint = 0,
+                       limits=c(-180,180)) +
+  theme_void() +
+  coord_sf(xlim = c(127, 147), ylim = c(25, 46),
+           crs = st_crs(&quot;+proj=longlat +datum=WGS84 +no_defs&quot;), 
+           expand = FALSE) +
+  labs(title=&quot;　　2018年&quot;)
+
+jpmap19 &lt;- jpmap %&gt;%
+  mutate(予測死者数との差=exdeath_pop_2019) %&gt;% 
+  ggplot() +
+  geom_sf(aes(geometry=geometry,fill=予測死者数との差)) +
+  scale_fill_gradient2(high=&quot;red&quot;,low=&quot;blue&quot;,mid = &quot;white&quot;,
+                       midpoint = 0,
+                       limits=c(-180,180)) +
+  theme_void() +
+  coord_sf(xlim = c(127, 147), ylim = c(25, 46),
+           crs = st_crs(&quot;+proj=longlat +datum=WGS84 +no_defs&quot;), 
+           expand = FALSE) +
+  labs(title=&quot;　　2019年&quot;)
+
+jpmap20 &lt;- jpmap %&gt;%
+  mutate(予測死者数との差=exdeath_pop_2020) %&gt;% 
+  ggplot() +
+  geom_sf(aes(geometry=geometry,fill=予測死者数との差)) +
+  scale_fill_gradient2(high=&quot;red&quot;,low=&quot;blue&quot;,mid = &quot;white&quot;,
+                       midpoint = 0,
+                       limits=c(-180,180)) +
+  theme_void() +
+  coord_sf(xlim = c(127, 147), ylim = c(25, 46),
+           crs = st_crs(&quot;+proj=longlat +datum=WGS84 +no_defs&quot;), 
+           expand = FALSE) +
+  labs(title=&quot;　　2020年&quot;)
+
+jpmap21 &lt;- jpmap %&gt;%
+  mutate(予測死者数との差=exdeath_pop_2021) %&gt;% 
+  ggplot() +
+  geom_sf(aes(geometry=geometry,fill=予測死者数との差)) +
+  scale_fill_gradient2(high=&quot;red&quot;,low=&quot;blue&quot;,mid = &quot;white&quot;,
+                       midpoint = 0,
+                       limits=c(-180,180)) +
+  theme_void() +
+  coord_sf(xlim = c(127, 147), ylim = c(25, 46),
+           crs = st_crs(&quot;+proj=longlat +datum=WGS84 +no_defs&quot;), 
+           expand = FALSE) +
+  labs(title=&quot;　　2021年&quot;)
+
+jpmap22 &lt;- jpmap %&gt;%
+  mutate(予測死者数との差=exdeath_pop_2022) %&gt;% 
+  ggplot() +
+  geom_sf(aes(geometry=geometry,fill=予測死者数との差)) +
+  scale_fill_gradient2(high=&quot;red&quot;,low=&quot;blue&quot;,mid = &quot;white&quot;,
+                       midpoint = 0,
+                       limits=c(-180,180)) +
+  theme_void() +
+  coord_sf(xlim = c(127, 147), ylim = c(25, 46),
+           crs = st_crs(&quot;+proj=longlat +datum=WGS84 +no_defs&quot;), 
+           expand = FALSE) +
+  labs(title=&quot;　　2022年&quot;)
+
+
+jpmap20_22 &lt;- jpmap %&gt;%
+  mutate(予測死者数との差 = (exdeath_2020 + exdeath_2021 + exdeath_2022)*100000 / population2020) %&gt;%
+  ggplot() +
+  geom_sf(aes(geometry=geometry,fill=予測死者数との差)) +
+  scale_fill_gradient2(high=&quot;red&quot;,low=&quot;blue&quot;,mid = &quot;white&quot;,
+                       midpoint = 0,
+                       limits=c(0,250)) +
+  theme_void() +
+  coord_sf(xlim = c(127, 147), ylim = c(25, 46),
+           crs = st_crs(&quot;+proj=longlat +datum=WGS84 +no_defs&quot;), 
+           expand = FALSE) +
+  labs(title=&quot;　　2020~22年&quot;)</code></pre>
+</div>
+<div id="地図を描く" class="section level3">
+<h3>地図を描く</h3>
+<p>　死者数が予測と比べてどれだけ多かったのか（あるいは少なかったのか）を、人口10万人当たりにして地図に描く。2017～19年の死者数は、各県とも予測とあまり差がなかったが、20年には予測を大きく下回った。21年には一転して予測を大きく上回り、22年にはその差がさらに拡大していることが見てとれる。</p>
+<pre class="r"><code>legend &lt;- get_legend(jpmap17)
+
+# コロナ禍前の３年間
+grid.arrange(arrangeGrob(jpmap17 + theme(legend.position = &quot;none&quot;),
+                         jpmap18 + theme(legend.position = &quot;none&quot;),
+                         jpmap19 + theme(legend.position = &quot;none&quot;),
+                         legend,nrow = 1))</code></pre>
+<p><img src="exdeath_output_files/figure-html/map-1.png" width="960" /></p>
+<pre class="r"><code># コロナ禍の３年間
+grid.arrange(arrangeGrob(jpmap20 + theme(legend.position = &quot;none&quot;),
+                         jpmap21 + theme(legend.position = &quot;none&quot;),
+                         jpmap22 + theme(legend.position = &quot;none&quot;),
+                         legend,nrow = 1))</code></pre>
+<p><img src="exdeath_output_files/figure-html/map-2.png" width="960" /></p>
+<pre class="r"><code># コロナ禍の３年間合計
+jpmap20_22</code></pre>
+<p><img src="exdeath_output_files/figure-html/map-3.png" width="960" /></p>
+</div>
+<div id="グラフを描く" class="section level3">
+<h3>グラフを描く</h3>
+<p>　地図ではデータを年ごとにまとめたが、出典とした厚労省研究班の資料には週ごとのデータが記録されている。これを利用して三つのグラフを作る。</p>
+<p>　・予測死者数との差を都道府県別、週別に見た３年間分のヒートマップ<br />
+　・全国の予測死者数との差を年ごとに示した棒グラフ<br />
+　・循環器疾患、呼吸器疾患、老衰が原因で亡くなった人の数を各死因の予測死者数と比べた折れ線グラフ</p>
+<pre class="r"><code># ３年間の都道府県別ヒートマップ
+est %&gt;%
+  filter(epidem_year %in% c(&quot;2020&quot;,&quot;2021&quot;,&quot;2022&quot;),
+         prefID!=&quot;48&quot;) %&gt;%
+  mutate(予測との差 = 100000*(observed-est_point) / population2020,
+         id_pref = str_c(prefID, pref)) %&gt;%
+  ggplot(aes(date,
+             fct_rev(id_pref),
+             fill=予測との差)) +
+  geom_tile() +
+  scale_fill_gradient2(high=&quot;red&quot;,low=&quot;blue&quot;,mid = &quot;white&quot;,
+                       midpoint = 0) +
+  theme(panel.background = element_rect(fill = &quot;white&quot;)) +
+  labs(title=&quot;都道府県別にみた死者数の予測との差&quot;,
+       subtitle=&quot;人口10万人当たり&quot;,
+       x=&quot;&quot;,y=&quot;&quot;)</code></pre>
+<p><img src="exdeath_output_files/figure-html/chart-1.png" width="768" /></p>
+<pre class="r"><code># 実際の死者数と予測死者数との差がどう変化したかを示す棒グラフ
+est %&gt;%
+  filter(pref==&quot;全国&quot;,
+         epidem_year %in% c(&quot;2017&quot;,&quot;2018&quot;,&quot;2019&quot;,&quot;2020&quot;,&quot;2021&quot;,&quot;2022&quot;)) %&gt;%
+  group_by(epidem_year) %&gt;%
+  summarize(observed=sum(observed),
+            est_point=sum(est_point)) %&gt;%
+  mutate(exdeath=observed-est_point) %&gt;%
+  ggplot(aes(epidem_year,exdeath)) +
+  geom_bar(stat=&quot;identity&quot;) +
+  labs(title=&quot;予測死者数との差の推移&quot;,
+       x=&quot;年&quot;,
+       y=&quot;実際の死者数と予測死者数の差&quot;)</code></pre>
+<p><img src="exdeath_output_files/figure-html/chart2-1.png" width="768" /></p>
+<pre class="r"><code># 死因別に見た全国の予測死者数との差を示す折れ線グラフ
+est_cause %&gt;%
+  filter(cause %in% c(&quot;circulatory&quot;,&quot;respiratory&quot;,&quot;senility&quot;),
+         epidem_year %in% c(&quot;2020&quot;,&quot;2021&quot;,&quot;2022&quot;),
+         pref==&quot;全国&quot;) %&gt;% 
+  mutate(exdeath=observed-est_point) %&gt;%
+  group_by(cause) %&gt;% 
+  mutate(exdeath_4w=((lag(exdeath,3)+lag(exdeath,2)+lag(exdeath,1)+exdeath)/4)) %&gt;%
+  ungroup() %&gt;% 
+  select(date,cause,exdeath,exdeath_4w) %&gt;%
+  mutate(cause=ifelse(cause==&quot;circulatory&quot;,&quot;循環器の病気&quot;,
+               ifelse(cause==&quot;respiratory&quot;,&quot;呼吸器の病気&quot;,
+               ifelse(cause==&quot;senility&quot;,&quot;老衰&quot;,cause)))) %&gt;%
+  rename(死因=cause) %&gt;% 
+  ggplot(aes(date,exdeath_4w,color=死因)) +
+  geom_line() +
+  labs(title=&quot;死因別に見た全国の予測死者数との差&quot;,
+       subtitle=&quot;4週間の平均。2022年は11月27日まで。新型コロナが死因とされる人は含まず&quot;,
+       x=&quot;&quot;,
+       y=&quot;人&quot;)</code></pre>
+<p><img src="exdeath_output_files/figure-html/chart2-2.png" width="768" /></p>
+</div>
+<div id="提出用データを作る" class="section level3">
+<h3>提出用データを作る</h3>
+<p>　記事に掲載する地図とグラフを作るため、朝日新聞社のデザイナー（加藤啓太郎さんと言います）に提出するデータを作る。</p>
+<pre class="r"><code># 地図を作るためのデータ
+est %&gt;%
+  group_by(prefID,pref,epidem_year,population2020) %&gt;% 
+  summarize(observed=sum(observed),est_point=sum(est_point)) %&gt;%
+  ungroup() %&gt;% 
+  mutate(exdeath=observed-est_point) %&gt;%
+  mutate(exdeath_pop=exdeath*100000/population2020) %&gt;%
+  select(-observed,-est_point) %&gt;% 
+  pivot_wider(names_from = epidem_year,
+              values_from = c(exdeath,exdeath_pop)) %&gt;%
+  mutate(exdeath_pop_3years = exdeath_pop_2020 + exdeath_pop_2021 + exdeath_pop_2022) %&gt;% 
+  write_excel_csv(&quot;data/for_designer/exdeath_map.csv&quot;)
+
+# ヒートマップを作るためのデータ
+est %&gt;%
+  filter(epidem_year %in% c(&quot;2020&quot;,&quot;2021&quot;,&quot;2022&quot;),prefID!=&quot;48&quot;) %&gt;%
+  mutate(exdeath_pop=100000*(observed-est_point)/population2020,
+         id_pref=str_c(prefID,pref)) %&gt;%
+  select(date,prefID,pref,exdeath_pop) %&gt;%
+  pivot_wider(names_from = date,values_from = exdeath_pop) %&gt;%
+  write_excel_csv(&quot;data/for_designer/exdeath_heatmap.csv&quot;)
+
+# 実際の死者数と予測死者数との差がどう変化したかを示す棒グラフ
+est %&gt;%
+  filter(pref==&quot;全国&quot;,
+         epidem_year %in% c(&quot;2017&quot;,&quot;2018&quot;,&quot;2019&quot;,&quot;2020&quot;,&quot;2021&quot;,&quot;2022&quot;)) %&gt;%
+  group_by(epidem_year) %&gt;%
+  summarize(observed=sum(observed),
+            est_point=sum(est_point)) %&gt;%
+  mutate(exdeath=observed-est_point) %&gt;%
+  write_excel_csv(&quot;data/for_designer/exdeath_year.csv&quot;)
+
+
+# 死因別折れ線グラフのためのデータ
+est_cause %&gt;%
+  filter(cause %in% c(&quot;circulatory&quot;,&quot;respiratory&quot;,&quot;senility&quot;),
+         epidem_year %in% c(&quot;2020&quot;,&quot;2021&quot;,&quot;2022&quot;),
+         pref==&quot;全国&quot;) %&gt;% 
+  mutate(exdeath=observed-est_point) %&gt;%
+  group_by(cause) %&gt;% 
+  mutate(exdeath_4w=((lag(exdeath,3)+lag(exdeath,2)+lag(exdeath,1)+exdeath)/4)) %&gt;%
+  ungroup() %&gt;% 
+  select(date,cause,exdeath,exdeath_4w) %&gt;%
+  mutate(cause=ifelse(cause==&quot;circulatory&quot;,&quot;循環器の病気&quot;,
+               ifelse(cause==&quot;respiratory&quot;,&quot;呼吸器の病気&quot;,
+               ifelse(cause==&quot;senility&quot;,&quot;老衰&quot;,cause)))) %&gt;%
+  rename(死因=cause) %&gt;%
+  pivot_wider(names_from = 死因,values_from = c(&quot;exdeath&quot;,&quot;exdeath_4w&quot;)) %&gt;% 
+  write_excel_csv(&quot;data/for_designer/exdeath_cause.csv&quot;)</code></pre>
+<p>　以上。</p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
